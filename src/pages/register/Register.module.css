@@ -1,0 +1,25 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.label {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+  font-size: 14px;
+  color: #333;
+  min-width: 220px;
+  justify-content: space-between;
+}
+.button {
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}

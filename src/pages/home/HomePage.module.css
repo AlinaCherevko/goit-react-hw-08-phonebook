@@ -1,0 +1,20 @@
+.textWrap {
+  padding-top: 50px;
+  padding-left: 50px;
+}
+.description {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+.title {
+  font-size: 52px;
+  font-weight: 700;
+  color: #007fff;
+  margin-bottom: 30px;
+}
+.afterTitle {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}

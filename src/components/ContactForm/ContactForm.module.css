@@ -1,0 +1,77 @@
+.title {
+  text-align: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 24px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 325px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  gap: 10px;
+}
+
+.label {
+  display: flex;
+
+  margin: 8px 0;
+  font-size: 14px;
+  color: #333;
+  min-width: 220px;
+  justify-content: space-between;
+}
+.button {
+  margin-top: 10px;
+  width: 140px;
+}
+.input {
+  width: 325px;
+}
+/* .divWrapper {
+  display: flex;
+  flex-direction: column;
+} */
+/* .form {
+  margin-left: auto;
+  margin-right: auto;
+  width: 328px;
+  border: transparent;
+  background-color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 40px;
+  border: 1px solid #000;
+  border-radius: 5px;
+} */
+
+/* .input:hover,
+.input:focus {
+  border-color: #94bfc6;
+}
+.label {
+  margin-bottom: 6px;
+  color: #94bfc6;
+  font-size: 18px;
+}  */
+/* .button {
+  display: flex;
+  padding: 4px 8px;
+  width: 100px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  background-color: #94bfc6;
+  border-radius: 4px;
+}
+.button:hover,
+.button:focus {
+  color: #fff;
+} */
