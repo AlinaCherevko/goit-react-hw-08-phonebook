@@ -24,36 +24,33 @@ const Register = () => {
   };
   return (
     <form className={css.form} onSubmit={onSubmit}>
-      <label className={css.label}>
-        Name:
-        <TextField
-          type="text"
-          name="userName"
-          variant="outlined"
-          size="small"
-          required
-        />
-      </label>
-      <label className={css.label}>
-        Email:
-        <TextField
-          type="email"
-          name="userEmail"
-          variant="outlined"
-          size="small"
-          required
-        />
-      </label>
-      <label className={css.label}>
-        Password:
-        <TextField
-          type="password"
-          name="userPassword"
-          variant="outlined"
-          size="small"
-          required
-        />
-      </label>
+      <label className={css.label}>Name:</label>
+
+      <TextField
+        type="text"
+        name="userName"
+        variant="outlined"
+        size="small"
+        required
+      />
+      <label className={css.label}>Email:</label>
+
+      <TextField
+        type="email"
+        name="userEmail"
+        variant="outlined"
+        size="small"
+        required
+      />
+      <label className={css.label}>Password:</label>
+
+      <TextField
+        type="password"
+        name="userPassword"
+        variant="outlined"
+        size="small"
+        required
+      />
       <Button
         className={css.button}
         type="submit"
