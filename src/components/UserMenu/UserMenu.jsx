@@ -11,7 +11,7 @@ export const UserMenu = () => {
   const email = userData?.email ?? '';
   return (
     <div className={css.wrapper}>
-      <p className={css.email}>{email}</p>
+      <p className={css.email}>Hello, {email}</p>
       <Button
         variant="contained"
         color="primary"
@@ -23,5 +23,3 @@ export const UserMenu = () => {
     </div>
   );
 };
-
-export default UserMenu;
