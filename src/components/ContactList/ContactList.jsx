@@ -31,7 +31,7 @@ export const ContactList = () => {
         {filteredContact.map(user => (
           <li key={user.id} className={css.wrapper}>
             <p className={css.description}>
-              {user.userName}: {user.userNumber}
+              {user.name}: {user.number}
             </p>
             <Button
               className={css.button}

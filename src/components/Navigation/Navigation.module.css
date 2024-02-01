@@ -1,3 +1,7 @@
 .headerNavigation {
   color: #000;
 }
+a.active {
+  color: #1976d2; /* Змініть цей колір на той, який ви використовуєте для активного стану */
+  font-weight: bold;
+}

@@ -28,8 +28,11 @@ export const selectDataFilter = createSelector(
 export const selectFilteredContacts = createSelector(
   [selectDataContacts, selectDataFilter],
   (contacts, filter) => {
-    return contacts.filter(user =>
-      user.userName.toLowerCase().includes(filter.trim().toLowerCase())
+    return contacts.filter(
+      user =>
+        user &&
+        user.name &&
+        user.name.toLowerCase().includes(filter.trim().toLowerCase())
     );
   }
 );

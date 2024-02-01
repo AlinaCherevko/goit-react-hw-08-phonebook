@@ -12,23 +12,23 @@ export const ContactForm = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectDataContacts);
 
-  const [userName, setUserName] = useState('');
-  const [userNumber, setUserNumber] = useState('');
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
 
   const formSubmit = e => {
     e.preventDefault();
 
     const formData = {
-      userName,
-      userNumber,
+      name,
+      number,
       // id буде ств у базі даних тому ми тут більше не використовуємо id: nanoid(),
     };
 
     addNewName(formData);
 
     //контрольовано очищуємо вміст форми:
-    setUserName('');
-    setUserNumber('');
+    setName('');
+    setNumber('');
 
     //очищуємо неконтрольовану форму:
     // e.currentTarget.reset();
@@ -36,10 +36,10 @@ export const ContactForm = () => {
 
   const addNewName = async formData => {
     const avoidRepitition = contacts.some(
-      contact => contact.userName === formData.userName
+      contact => contact.name === formData.name
     );
     if (avoidRepitition) {
-      alert(`${formData.userName} is already exist!`);
+      alert(`${formData.name} is already exist!`);
       return;
     }
 
@@ -50,10 +50,10 @@ export const ContactForm = () => {
   const onChangeInputForm = ({ target: { name, value } }) => {
     switch (name) {
       case 'userName':
-        setUserName(value);
+        setName(value);
         break;
       case 'userNumber':
-        setUserNumber(value);
+        setNumber(value);
         break;
       default:
         return;
@@ -68,7 +68,7 @@ export const ContactForm = () => {
           <label className={css.label}>Name</label>
           <TextField
             onChange={onChangeInputForm}
-            value={userName}
+            value={name}
             type="text"
             name="userName"
             className={css.input}
@@ -81,7 +81,7 @@ export const ContactForm = () => {
           <label className={css.label}>Number</label>
           <TextField
             onChange={onChangeInputForm}
-            value={userNumber}
+            value={number}
             type="text"
             name="userNumber"
             className={css.input}
