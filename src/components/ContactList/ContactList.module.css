@@ -4,12 +4,14 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+  margin: 30px 0;
   list-style: none;
 }
 .warning {
   color: #007fff;
   text-align: center;
   font-size: 20px;
+  margin: 30px 0;
 }
 .wrapper {
   display: flex;

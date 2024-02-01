@@ -6,7 +6,7 @@ const Contacts = () => {
   return (
     <>
       <ContactForm />
-      <h2 className={css.contactsTitle}>CONTACTS</h2>
+      <p className={css.contactsTitle}>CONTACTS</p>
       <Filter />
       <ContactList />
     </>
