@@ -1,7 +1,7 @@
 import React, { Suspense, lazy, useEffect } from 'react';
 
 import { Route, Routes } from 'react-router-dom';
-import { Layout } from 'components';
+import { Layout, PrivateRoute, RestrictedRoute } from 'components';
 import { useDispatch } from 'react-redux';
 import { apiRefreshUser } from 'store/auth/authSlice';
 
@@ -24,9 +24,33 @@ export const App = () => {
       <Suspense>
         <Routes>
           <Route path="/" element={<HomePage />} />;
-          <Route path="/contacts" element={<Contacts />} />;
-          <Route path="/login" element={<Login />} />;
-          <Route path="/register" element={<Register />} />;
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute>
+                <Contacts />
+              </PrivateRoute>
+            }
+          />
+          ;
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute>
+                <Login />
+              </RestrictedRoute>
+            }
+          />
+          ;
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute>
+                <Register />
+              </RestrictedRoute>
+            }
+          />
+          ;
         </Routes>
       </Suspense>
     </Layout>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigation } from 'components/Navigation/Navigation';
+import { Navigation } from 'components';
 
 import css from './Layout.module.css';
 import { selectIsLoggedIn } from 'store/auth/authSlise.selectors';
