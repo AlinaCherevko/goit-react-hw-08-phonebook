@@ -1,8 +1,11 @@
 import { createAsyncThunk, createSlice, isAnyOf } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+// export const $authInstance = axios.create({
+//   baseURL: 'https://connections-api.herokuapp.com',
+// });
 export const $authInstance = axios.create({
-  baseURL: 'https://connections-api.herokuapp.com',
+  baseURL: 'http://localhost:8000',
 });
 
 // ----------встановлення  токену----------

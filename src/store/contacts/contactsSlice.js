@@ -65,8 +65,8 @@ const contactsSlice = createSlice({
       .addCase(apiGetContacts.fulfilled, (state, action) => {
         state.status = 'success';
         state.isLoading = false;
-        state.contacts = [...state.contacts, action.payload];
-        // state.contacts = action.payload;
+        // state.contacts = [...state.contacts, action.payload];
+        state.contacts = action.payload;
       })
       .addCase(apiGetContacts.rejected, (state, action) => {
         state.status = 'error';
@@ -99,7 +99,7 @@ const contactsSlice = createSlice({
       .addCase(apiDeleteContact.fulfilled, (state, action) => {
         state.status = 'success';
         state.contacts = state.contacts.filter(
-          contact => contact.id !== action.payload.id
+          contact => contact._id !== action.payload._id
         );
       })
       .addCase(apiDeleteContact.rejected, (state, action) => {
