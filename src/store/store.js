@@ -16,12 +16,6 @@ import { authReducer } from './auth/authSlice';
 import { contactsReducer } from './contacts/contactsSlice';
 import { filterReducer } from './filter/filterSlice';
 
-const contactsConfig = {
-  key: 'contacts',
-  storage,
-  whitelist: ['contacts'],
-};
-
 const authConfig = {
   key: 'auth',
   storage,
