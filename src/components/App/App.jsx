@@ -11,6 +11,8 @@ const HomePage = lazy(() => import('pages/home/HomePage'));
 const Contacts = lazy(() => import('pages/contacts/Contacts'));
 const Login = lazy(() => import('pages/login/Login'));
 const Register = lazy(() => import('pages/register/Register'));
+const Profile = lazy(() => import('pages/profile/Profile'));
+const EditProfile = lazy(() => import('pages/editProfile/EditProfile'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -41,7 +43,6 @@ export const App = () => {
               </RestrictedRoute>
             }
           />
-          ;
           <Route
             path="/register"
             element={
@@ -51,6 +52,23 @@ export const App = () => {
             }
           />
           ;
+          <Route
+            path="/profile"
+            element={
+              <PrivateRoute>
+                <Profile />
+              </PrivateRoute>
+            }
+          />
+          ;
+          <Route
+            path="/profile/edit"
+            element={
+              <PrivateRoute>
+                <EditProfile />
+              </PrivateRoute>
+            }
+          />
         </Routes>
       </Suspense>
     </Layout>

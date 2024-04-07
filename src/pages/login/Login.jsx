@@ -16,7 +16,7 @@ const Login = () => {
       email,
       password,
     };
-    console.log(formData);
+    // console.log(formData);
     dispatch(apiLoginUser(formData));
   };
 

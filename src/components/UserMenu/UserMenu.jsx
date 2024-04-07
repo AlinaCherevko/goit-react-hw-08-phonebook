@@ -4,6 +4,9 @@ import { apiLogOutUser } from 'store/auth/authSlice';
 import { selectDataAuth } from 'store/auth/authSlise.selectors';
 import css from './UserMenu.module.css';
 import { Button } from '@mui/material';
+import Tab from '@mui/material/Tab';
+
+import { NavLink } from 'react-router-dom';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
@@ -12,6 +15,9 @@ export const UserMenu = () => {
   return (
     <div className={css.wrapper}>
       <p className={css.email}>Hello, {email}</p>
+      <Tab component={NavLink} to="/profile" label="Profile">
+        PROFILE
+      </Tab>
       <Button
         variant="contained"
         color="primary"

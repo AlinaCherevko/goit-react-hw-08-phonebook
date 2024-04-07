@@ -1,0 +1,24 @@
+.button {
+  margin-top: 40px;
+}
+.form {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  margin-top: 20px;
+  padding: 20px 25px;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.label {
+  margin-bottom: 4px;
+  color: #828c80;
+}
+.input {
+  width: 300px;
+}
