@@ -46,6 +46,40 @@ export const apiLoginUser = createAsyncThunk(
   }
 );
 
+//---------оновлення профіля користувача------------
+export const updateProfile = createAsyncThunk(
+  'auth/updateProfile',
+  async (file, thunkApi) => {
+    try {
+      const formData = new FormData();
+      formData.append('avatar', file);
+      const { data } = await $authInstance.patch('/users/avatars', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+      return data.avatarURL;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+//---------оновлення імені користувача------------
+export const updateProfileName = createAsyncThunk(
+  'auth/updateProfileName',
+  async (name, thunkApi) => {
+    try {
+      console.log(name);
+      const { data } = await $authInstance.patch('/users/update/name', {
+        name,
+      });
+      console.log(data);
+      return data.name;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
 //---------збереження існуючого користувача і введених даних------------
 export const apiRefreshUser = createAsyncThunk(
   'auth/apiRefreshUser',
@@ -109,6 +143,12 @@ const authSlice = createSlice({
         state.userData = action.payload.user;
         state.token = action.payload.token;
       })
+      .addCase(updateProfile.fulfilled, (state, action) => {
+        state.userData.avatarURL = action.payload;
+      })
+      .addCase(updateProfileName.fulfilled, (state, action) => {
+        state.userData.name = action.payload;
+      })
       .addCase(apiRefreshUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isLoggedIn = true;
@@ -124,7 +164,9 @@ const authSlice = createSlice({
           apiRegisterUser.pending,
           apiLoginUser.pending,
           apiRefreshUser.pending,
-          apiLogOutUser.pending
+          apiLogOutUser.pending,
+          updateProfile.pending,
+          updateProfileName.pending
         ),
         state => {
           state.isLoading = true;
@@ -136,7 +178,9 @@ const authSlice = createSlice({
           apiRegisterUser.rejected,
           apiLoginUser.rejected,
           apiRefreshUser.rejected,
-          apiLogOutUser.rejected
+          apiLogOutUser.rejected,
+          updateProfile.rejected,
+          updateProfileName.rejected
         ),
         (state, action) => {
           state.isLoading = false;

@@ -1,19 +1,36 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { selectDataAuth } from 'store/auth/authSlise.selectors';
 import { Button } from '@mui/material';
 import css from './EditProfile.module.module.css';
+import { updateProfile, updateProfileName } from 'store/auth/authSlice';
 
 const EditProfile = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const userData = useSelector(selectDataAuth);
-  const initialEmail = userData?.email ?? '';
-  const initialName = userData?.name ?? '';
+
+  const initialEmail = userData.email;
+  const initialName = userData.name;
 
   const [name, setName] = useState(initialName);
   const [email, setEmail] = useState(initialEmail);
+  const [file, setFile] = useState(null);
 
-  const onFormSubmit = () => {};
+  const onFormSubmit = e => {
+    e.preventDefault();
+    dispatch(updateProfile(file));
+    // console.log(name);
+    dispatch(updateProfileName(name));
 
+    navigate('/profile');
+  };
+
+  const handleLoadFile = e => {
+    setFile(e.target.files[0]);
+    console.log(e.target.files[0]);
+  };
   const onChangeInput = ({ target: { name, value } }) => {
     switch (name) {
       case 'name':
@@ -48,7 +65,11 @@ const EditProfile = () => {
       </div>
       <div className={css.wrapper}>
         <label className={css.label}>Avatar</label>
-        <input className={css.input}></input>
+        <input
+          className={css.input}
+          type="file"
+          onChange={handleLoadFile}
+        ></input>
       </div>
       <Button
         className={css.button}

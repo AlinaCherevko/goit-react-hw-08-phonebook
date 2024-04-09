@@ -8,11 +8,19 @@ import css from './Profile.module.css';
 
 const Profile = () => {
   const userData = useSelector(selectDataAuth);
-  const email = userData?.email ?? '';
-  const name = userData?.name ?? '';
-  const avatarURL = userData?.avatarURL ?? '';
+
+  const email = userData.email;
+  const name = userData.name;
+  const avatarURL = userData.avatarURL;
+
   const navigate = useNavigate();
 
+  const baseURL = 'http://localhost:8000/';
+  const url = avatarURL.startsWith('http')
+    ? avatarURL
+    : baseURL.concat(avatarURL);
+
+  console.log(url);
   const handleClick = () => {
     navigate('/profile/edit');
   };
@@ -22,7 +30,7 @@ const Profile = () => {
         <h2 className={css.title}>PROFILE</h2>
         <p className={css.text}>{name}</p>
         <p className={css.text}>{email}</p>
-        <img src={avatarURL} alt={name} />
+        <img src={url} alt={name} />
       </div>
       <Button
         // to="edit"
