@@ -18,7 +18,7 @@ const Profile = () => {
   const baseURL = 'http://localhost:8000/';
   const url = avatarURL.startsWith('http')
     ? avatarURL
-    : baseURL.concat(avatarURL);
+    : `${baseURL}${avatarURL}`;
 
   console.log(url);
   const handleClick = () => {
